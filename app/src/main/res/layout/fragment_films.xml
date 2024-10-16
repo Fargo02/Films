@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline_16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/mark_16dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guideline_16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/mark_16dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="@dimen/mark_48dp"
+            android:layout_height="@dimen/mark_48dp"
+            android:indeterminateTint="@color/yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"/>
+
+        <Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/films"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_mark_18sp"
+                android:fontFamily="@font/roboto_medium"
+                android:textAlignment="center"/>
+        </Toolbar>
+
+        <TextView
+            android:id="@+id/genres"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/genres"
+            android:textSize="@dimen/text_mark_20sp"
+            android:fontFamily="@font/roboto_bold"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:layout_marginTop="@dimen/mark_16dp"
+            app:layout_constraintStart_toEndOf="@id/start_guideline_16dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"/>
+
+        <TextView
+            android:id="@+id/fighter"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/fighter"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:textSize="@dimen/text_mark_16sp"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingStart="@dimen/mark_16dp"
+            android:paddingEnd="@dimen/mark_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/genres"/>
+
+        <TextView
+            android:id="@+id/detective"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/detective"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:textSize="@dimen/text_mark_16sp"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingStart="@dimen/mark_16dp"
+            android:paddingEnd="@dimen/mark_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fighter"/>
+
+        <TextView
+            android:id="@+id/drama"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/drama"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:textSize="@dimen/text_mark_16sp"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingStart="@dimen/mark_16dp"
+            android:paddingEnd="@dimen/mark_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detective"/>
+
+        <TextView
+            android:id="@+id/comedy"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/comedy"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:textSize="@dimen/text_mark_16sp"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingStart="@dimen/mark_16dp"
+            android:paddingEnd="@dimen/mark_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/drama"/>
+
+        <TextView
+            android:id="@+id/crime"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/crime"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:textSize="@dimen/text_mark_16sp"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingStart="@dimen/mark_16dp"
+            android:paddingEnd="@dimen/mark_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/comedy"/>
+
+        <TextView
+            android:id="@+id/melodrama"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/melodrama"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:textSize="@dimen/text_mark_16sp"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingStart="@dimen/mark_16dp"
+            android:paddingEnd="@dimen/mark_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/crime"/>
+
+        <TextView
+            android:id="@+id/musical"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/musical"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:textSize="@dimen/text_mark_16sp"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingStart="@dimen/mark_16dp"
+            android:paddingEnd="@dimen/mark_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/melodrama"/>
+
+        <TextView
+            android:id="@+id/adventures"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/adventures"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:textSize="@dimen/text_mark_16sp"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingStart="@dimen/mark_16dp"
+            android:paddingEnd="@dimen/mark_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/musical"/>
+
+        <TextView
+            android:id="@+id/thriller"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/thriller"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:textSize="@dimen/text_mark_16sp"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingStart="@dimen/mark_16dp"
+            android:paddingEnd="@dimen/mark_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/adventures"/>
+
+        <TextView
+            android:id="@+id/horrors"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:paddingStart="@dimen/mark_16dp"
+            android:paddingEnd="@dimen/mark_16dp"
+            android:text="@string/horrors"
+            android:textSize="@dimen/text_mark_16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/thriller" />
+
+        <TextView
+            android:id="@+id/fantasy"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/fantasy"
+            android:paddingVertical="@dimen/mark_10dp"
+            android:textSize="@dimen/text_mark_16sp"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingStart="@dimen/mark_16dp"
+            android:paddingEnd="@dimen/mark_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horrors"/>
+
+        <TextView
+            android:id="@+id/films"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/films"
+            android:textSize="@dimen/text_mark_20sp"
+            android:fontFamily="@font/roboto_bold"
+            android:paddingVertical="@dimen/mark_8dp"
+            android:layout_marginTop="@dimen/mark_16dp"
+            app:layout_constraintStart_toEndOf="@id/start_guideline_16dp"
+            app:layout_constraintTop_toBottomOf="@id/fantasy"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/filmsList"
+            android:layout_width="@dimen/mark_0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            android:clipToPadding="false"
+            android:layout_marginBottom="@dimen/mark_16dp"
+            android:layout_marginHorizontal="@dimen/mark_16dp"
+            tools:itemCount="5"
+            app:spanCount="2"
+            tools:listitem="@layout/film_item"
+            app:layout_constraintTop_toBottomOf="@id/films"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
