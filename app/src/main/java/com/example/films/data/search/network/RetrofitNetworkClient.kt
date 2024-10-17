@@ -4,10 +4,13 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import com.example.films.data.search.NetworkClient
+import com.example.films.data.search.dto.FilmsSearchRequest
 import com.example.films.data.search.dto.Response
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class RetrofitNetworkClient(
-    //private val IMDbApiService: IMDbApiService,
+    private val apiService: ApiService,
     private val context: Context
 ) : NetworkClient {
 
@@ -17,7 +20,16 @@ class RetrofitNetworkClient(
             return Response().apply { resultCode = -1 }
         }
         return when (dto) {
-
+            is FilmsSearchRequest -> {
+                return withContext(Dispatchers.IO) {
+                    try {
+                        val response = apiService.searchFilm()
+                        response.apply { resultCode = 200 }
+                    } catch (e: Throwable) {
+                        Response().apply { resultCode = 500 }
+                    }
+                }
+            }
             else -> {
                 Response().apply { resultCode = 400 }
             }

@@ -1,6 +1,6 @@
 package com.example.films.data.search.dto
 
 
-class FilmsSearchResponse(val searchType: String,
-                          val expression: String,
-                          val results: List<FilmDto>) : Response()
+class FilmsSearchResponse(
+    val films: List<FilmDto>
+) : Response()

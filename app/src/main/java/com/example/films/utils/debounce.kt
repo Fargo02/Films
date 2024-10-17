@@ -1,4 +1,4 @@
-package com.practicum.mymovies.util
+package com.example.films.utils
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
