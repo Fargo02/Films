@@ -1,6 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:navigationIcon="@drawable/ic_arrow_back"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="The mountain between us"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_mark_18sp"
+            android:fontFamily="@font/roboto_medium"
+            android:textAlignment="center"/>
+    </Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mark_0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_guideline_16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/mark_16dp" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_guideline_16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/mark_16dp" />
+
+            <ImageView
+                android:id="@+id/cover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:src="@drawable/ic_launcher_background"
+                android:layout_marginTop="@dimen/mark_24dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/name"/>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="@dimen/mark_0dp"
+                android:layout_height="wrap_content"
+                tools:text="Между нами горы"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_mark_26sp"
+                android:fontFamily="@font/roboto_bold"
+                android:layout_marginTop="@dimen/mark_24dp"
+                app:layout_constraintStart_toEndOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/cover"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"/>
+            <TextView
+                android:id="@+id/genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_8dp"
+                tools:text="боевик,"
+                android:textSize="@dimen/text_mark_16sp"
+                android:textColor="@color/brown"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintStart_toEndOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/name"/>
+            <TextView
+                android:id="@+id/year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mark_4dp"
+                tools:text="2017 год"
+                android:textSize="@dimen/text_mark_16sp"
+                android:textColor="@color/brown"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintBaseline_toBaselineOf="@id/genre"
+                app:layout_constraintStart_toEndOf="@id/genre"
+                app:layout_constraintTop_toBottomOf="@id/name"/>
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_10dp"
+                tools:text="6.7"
+                android:textSize="@dimen/text_mark_24sp"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintStart_toEndOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/genre"/>
+            <TextView
+                android:id="@+id/kinopoisk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kinopoisk"
+                android:layout_marginStart="@dimen/mark_8dp"
+                android:textSize="@dimen/text_mark_16sp"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintBaseline_toBaselineOf="@id/rating"
+                app:layout_constraintStart_toEndOf="@id/rating"
+                app:layout_constraintBottom_toBottomOf="@id/rating"/>
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="@dimen/mark_0dp"
+                android:layout_height="wrap_content"
+                tools:text="Успешный банкир Энди Дюфрейн обвинен в убийстве собственной жены и ее любовника. Оказавшись в тюрьме под названием Шоушенк, он сталкивается с жестокостью и беззаконием, царящими по обе стороны решетки. Каждый, кто попадает в эти стены, становится их рабом до конца жизни. Но Энди, вооруженный живым умом и доброй душой, отказывается мириться с приговором судьбы и начинает разрабатывать невероятно дерзкий план своего освобождения."
+                android:layout_marginTop="@dimen/mark_14dp"
+                android:background="@color/text_color_bgr"
+                android:textSize="@dimen/text_mark_14sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_regular"
+                app:layout_constraintStart_toEndOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/rating"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

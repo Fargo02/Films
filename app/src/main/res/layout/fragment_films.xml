@@ -31,7 +31,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
         <Toolbar
             android:id="@+id/toolbar"
@@ -50,10 +50,20 @@
                 android:textAlignment="center"/>
         </Toolbar>
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/genresGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_tags="genres, fighter, detective, drama, comedy,
+            crime, melodrama, musical, adventures, thriller, horrors, fantasy, films"/>
+
         <TextView
             android:id="@+id/genres"
+            app:layout_constraintTag="genres"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/genres"
             android:textSize="@dimen/text_mark_20sp"
             android:fontFamily="@font/roboto_bold"
@@ -65,8 +75,10 @@
 
         <TextView
             android:id="@+id/fighter"
+            app:layout_constraintTag="fighter"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/fighter"
             android:background="@color/text_color_bgr"
             android:paddingVertical="@dimen/mark_10dp"
@@ -81,8 +93,10 @@
 
         <TextView
             android:id="@+id/detective"
+            app:layout_constraintTag="detective"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/detective"
             android:background="@color/text_color_bgr"
             android:paddingVertical="@dimen/mark_10dp"
@@ -96,8 +110,10 @@
 
         <TextView
             android:id="@+id/drama"
+            app:layout_constraintTag="drama"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/drama"
             android:background="@color/text_color_bgr"
             android:paddingVertical="@dimen/mark_10dp"
@@ -111,8 +127,10 @@
 
         <TextView
             android:id="@+id/comedy"
+            app:layout_constraintTag="comedy"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/comedy"
             android:background="@color/text_color_bgr"
             android:paddingVertical="@dimen/mark_10dp"
@@ -126,8 +144,10 @@
 
         <TextView
             android:id="@+id/crime"
+            app:layout_constraintTag="crime"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/crime"
             android:background="@color/text_color_bgr"
             android:paddingVertical="@dimen/mark_10dp"
@@ -141,8 +161,10 @@
 
         <TextView
             android:id="@+id/melodrama"
+            app:layout_constraintTag="melodrama"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/melodrama"
             android:background="@color/text_color_bgr"
             android:paddingVertical="@dimen/mark_10dp"
@@ -156,8 +178,10 @@
 
         <TextView
             android:id="@+id/musical"
+            app:layout_constraintTag="musical"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/musical"
             android:background="@color/text_color_bgr"
             android:paddingVertical="@dimen/mark_10dp"
@@ -173,21 +197,26 @@
             android:id="@+id/adventures"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
-            android:text="@string/adventures"
+            android:textColor="@color/black"
             android:background="@color/text_color_bgr"
-            android:paddingVertical="@dimen/mark_10dp"
-            android:textSize="@dimen/text_mark_16sp"
             android:fontFamily="@font/roboto_medium"
+            android:paddingVertical="@dimen/mark_10dp"
             android:paddingStart="@dimen/mark_16dp"
             android:paddingEnd="@dimen/mark_16dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/adventures"
+            android:textSize="@dimen/text_mark_16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/musical"/>
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTag="adventures"
+            app:layout_constraintTop_toBottomOf="@id/musical" />
 
         <TextView
             android:id="@+id/thriller"
+            app:layout_constraintTag="thriller"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/thriller"
             android:background="@color/text_color_bgr"
             android:paddingVertical="@dimen/mark_10dp"
@@ -203,22 +232,26 @@
             android:id="@+id/horrors"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black"
             android:background="@color/text_color_bgr"
-            android:text="@string/horrors"
+            android:fontFamily="@font/roboto_medium"
             android:paddingVertical="@dimen/mark_10dp"
             android:paddingStart="@dimen/mark_16dp"
             android:paddingEnd="@dimen/mark_16dp"
+            android:text="@string/horrors"
             android:textSize="@dimen/text_mark_16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTag="horrors"
             app:layout_constraintTop_toBottomOf="@id/thriller" />
 
         <TextView
             android:id="@+id/fantasy"
+            app:layout_constraintTag="fantasy"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:background="@color/text_color_bgr"
             android:text="@string/fantasy"
             android:paddingVertical="@dimen/mark_10dp"
@@ -232,8 +265,10 @@
 
         <TextView
             android:id="@+id/films"
+            app:layout_constraintTag="films"
             android:layout_width="@dimen/mark_0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/films"
             android:textSize="@dimen/text_mark_20sp"
             android:fontFamily="@font/roboto_bold"
@@ -249,7 +284,7 @@
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             android:clipToPadding="false"
-            android:layout_marginBottom="@dimen/mark_16dp"
+            android:layout_marginVertical="@dimen/mark_16dp"
             android:layout_marginHorizontal="@dimen/mark_16dp"
             tools:itemCount="5"
             app:spanCount="2"
@@ -257,7 +292,8 @@
             app:layout_constraintTop_toBottomOf="@id/films"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

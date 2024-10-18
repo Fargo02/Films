@@ -3,20 +3,24 @@
     <dimen name="text_mark_11sp">11sp</dimen>
     <dimen name="text_mark_12sp">12sp</dimen>
     <dimen name="text_mark_13sp">13sp</dimen>
-    <dimen name="text_mark_14sp">14sp</dimen>
     <dimen name="text_mark_19sp">19sp</dimen>
     <dimen name="text_mark_22sp">22sp</dimen>
     <dimen name="text_mark_32sp">32sp</dimen>
 
 
                 <!--Using-->
+    <dimen name="text_mark_14sp">14sp</dimen>
     <dimen name="text_mark_16sp">16sp</dimen>
     <dimen name="text_mark_18sp">18sp</dimen>
     <dimen name="text_mark_20sp">20sp</dimen>
+    <dimen name="text_mark_24sp">24sp</dimen>
+    <dimen name="text_mark_26sp">26sp</dimen>
 
     <dimen name="mark_0dp">0dp</dimen>
+    <dimen name="mark_4dp">4dp</dimen>
     <dimen name="mark_8dp">8dp</dimen>
     <dimen name="mark_10dp">10dp</dimen>
+    <dimen name="mark_14dp">14dp</dimen>
     <dimen name="mark_16dp">16dp</dimen>
     <dimen name="mark_48dp">48dp</dimen>
                 <!--    -->
@@ -26,7 +30,7 @@
 
 
 
-    <dimen name="mark_4dp">4dp</dimen>
+
     <dimen name="mark_6dp">6dp</dimen>
     <dimen name="mark_9dp">9dp</dimen>
     <dimen name="mark_12dp">12dp</dimen>
