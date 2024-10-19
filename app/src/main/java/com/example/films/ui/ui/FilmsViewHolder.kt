@@ -10,7 +10,7 @@ import com.example.films.domain.films.model.Film
 
 class FilmsViewHolder(
     private val binding: FilmItemBinding,
-    private val clickListener: FilmsAdapter.TrackClickListener
+    private val clickListener: FilmsAdapter.FilmClickListener
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(model: Film) {

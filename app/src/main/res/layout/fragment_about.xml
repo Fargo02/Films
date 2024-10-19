@@ -17,17 +17,13 @@
         app:layout_constraintTop_toTopOf="parent">
         <TextView
             android:id="@+id/toolbarTitle"
+            style="@style/toolbar_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="The mountain between us"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_mark_18sp"
-            android:fontFamily="@font/roboto_medium"
-            android:layout_gravity="center"/>
+            tools:text="The mountain between us" />
     </Toolbar>
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/mark_0dp"
         android:layout_marginBottom="@dimen/mark_16dp"

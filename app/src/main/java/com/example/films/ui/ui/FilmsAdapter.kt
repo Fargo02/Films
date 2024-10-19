@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.films.databinding.FilmItemBinding
 import com.example.films.domain.films.model.Film
 
-class FilmsAdapter(private val clickListener: TrackClickListener) :
+class FilmsAdapter(private val clickListener: FilmClickListener) :
     RecyclerView.Adapter<FilmsViewHolder>() {
 
     var films = ArrayList<Film>()
@@ -22,7 +22,7 @@ class FilmsAdapter(private val clickListener: TrackClickListener) :
 
     override fun getItemCount(): Int = films.size
 
-    fun interface TrackClickListener {
+    fun interface FilmClickListener {
         fun onFilmClick(film: Film)
     }
 }

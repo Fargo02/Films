@@ -24,6 +24,8 @@ class FilmsViewModel(
     }
 
     fun toggleGenreSelection(genre: String) {
+        // currentSelectedGenre.first - текущее значение
+        // currentSelectedGenre.second - последнее значение
         viewModelScope.launch {
             delay(DELAY)
             val currentSelectedGenre = selectedGenre.value ?: Pair("","")
@@ -34,9 +36,6 @@ class FilmsViewModel(
                 Pair(genre, currentSelectedGenre.first)
             }
         }
-        // currentSelectedGenre.first - текущее значение
-        // currentSelectedGenre.second - последнее значение
-
     }
 
     fun getFilms(genre: String = "") {
@@ -64,7 +63,6 @@ class FilmsViewModel(
                 films.addAll(foundFilms)
             }
         }
-
 
         when {
             errorMessage != null -> {

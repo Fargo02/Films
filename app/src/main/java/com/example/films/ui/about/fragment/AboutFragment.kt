@@ -82,6 +82,5 @@ class AboutFragment(): BindingFragment<FragmentAboutBinding>() {
                 )
             }
         }
-
     }
 }

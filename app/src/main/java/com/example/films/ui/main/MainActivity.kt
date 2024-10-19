@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 this.add(R.id.rootFragmentContainerView, FilmsFragment())
