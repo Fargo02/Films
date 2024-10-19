@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/mark_16dp"
+    android:layout_marginTop="@dimen/mark_8dp"
+    android:layout_marginBottom="@dimen/mark_8dp"
     android:background="@color/white"
     android:layout_marginHorizontal="@dimen/mark_4dp">
 
@@ -39,6 +40,7 @@
         android:textSize="@dimen/text_mark_16sp"
         android:layout_marginTop="@dimen/mark_8dp"
         android:fontFamily="@font/roboto_bold"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/coverGroup"
         app:layout_constraintEnd_toEndOf="parent"/>

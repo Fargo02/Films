@@ -23,9 +23,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FilmsFragment(): BindingFragment<FragmentFilmsBinding>() {
 
-    private var genre = ""
-
-    private var genreView: View? = null
+    private var lastSearch = ""
 
     private val viewModel by viewModel<FilmsViewModel>()
 
@@ -42,7 +40,19 @@ class FilmsFragment(): BindingFragment<FragmentFilmsBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //при переходе с 2 фрагмента на 1 теряется выбранный жанр
+        val genreMap = mapOf(
+            getString(R.string.fighter) to binding.fighter,
+            getString(R.string.detective) to binding.detective,
+            getString(R.string.drama) to binding.drama,
+            getString(R.string.comedy) to binding.comedy,
+            getString(R.string.melodrama) to binding.melodrama,
+            getString(R.string.musical) to binding.musical,
+            getString(R.string.adventures) to binding.adventures,
+            getString(R.string.thriller) to binding.thriller,
+            getString(R.string.horrors) to binding.horrors,
+            getString(R.string.fantasy) to binding.fantasy,
+            "" to null
+        )
 
         onFilmClickDebounce = debounce<Film>(CLICK_DEBOUNCE_DELAY, viewLifecycleOwner.lifecycleScope, false) { film ->
             val json = Gson().toJson(film)
@@ -66,6 +76,23 @@ class FilmsFragment(): BindingFragment<FragmentFilmsBinding>() {
         binding.filmsList.layoutManager = GridLayoutManager(requireContext(),2)
         binding.filmsList.adapter = filmsAdapter
 
+        viewModel.observeSelectedGenre().observe(viewLifecycleOwner) { genre ->
+            lastSearch = genre.first
+            val lastView = genreMap[genre.second]
+            val currentView = genreMap[genre.first]
+            if (currentView?.isSelected == true) {
+                viewModel.getFilms()
+                lastView?.isSelected = false
+                lastView?.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+            } else {
+                viewModel.getFilms(genre.first)
+                lastView?.isSelected = false
+                lastView?.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+                currentView?.isSelected = true
+                currentView?.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.yellow))
+            }
+        }
+
         viewModel.observeSearchStateLiveData().observe(viewLifecycleOwner) {
             render(it)
         }
@@ -80,6 +107,10 @@ class FilmsFragment(): BindingFragment<FragmentFilmsBinding>() {
         clickToGenre(binding.thriller, getString(R.string.thriller))
         clickToGenre(binding.horrors, getString(R.string.horrors))
         clickToGenre(binding.fantasy, getString(R.string.fantasy))
+
+        binding.placeholderButton.setOnClickListener {
+            viewModel.getFilms(lastSearch)
+        }
     }
 
     override fun onDestroyView() {
@@ -89,21 +120,7 @@ class FilmsFragment(): BindingFragment<FragmentFilmsBinding>() {
 
     private fun clickToGenre(view: View, genre: String){
         view.setOnClickListener {
-            if (view.isSelected) {
-                viewModel.getFilms()
-                this.genre = ""
-                genreView = null
-                view.isSelected = false
-                view.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
-            } else {
-                viewModel.getFilms(this.genre)
-                genreView?.isSelected = false
-                genreView?.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
-                this.genre = genre
-                genreView = view
-                view.isSelected = true
-                view.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.yellow))
-            }
+            viewModel.toggleGenreSelection(genre)
         }
     }
 
@@ -120,12 +137,14 @@ class FilmsFragment(): BindingFragment<FragmentFilmsBinding>() {
         binding.genresGroup.isVisible = false
         binding.filmsList.isVisible = false
         binding.progressBar.isVisible = true
+        binding.placeholder.isVisible = false
     }
 
     private fun showContent(films: List<Film>) {
         binding.genresGroup.isVisible = true
         binding.filmsList.isVisible = true
         binding.progressBar.isVisible = false
+        binding.placeholder.isVisible = false
         filmsAdapter?.films?.clear()
         filmsAdapter?.films?.addAll(films)
         filmsAdapter?.notifyDataSetChanged()
@@ -134,17 +153,15 @@ class FilmsFragment(): BindingFragment<FragmentFilmsBinding>() {
     private fun showError() {
         binding.filmsList.isVisible = false
         binding.progressBar.isVisible = false
-//        binding.textPlaceholder.text = getString(R.string.problem_with_network)
-//        binding.imagePlaceholder.setImageResource(R.drawable.problem_with_network)
+        binding.placeholder.isVisible = true
     }
 
     private fun showEmpty() {
         binding.filmsList.isVisible = false
         binding.progressBar.isVisible = false
+        binding.placeholder.isVisible = false
         filmsAdapter?.films?.clear()
         filmsAdapter?.notifyDataSetChanged()
-//        binding.textPlaceholder.text = getString(R.string.nothing_found)
-//        binding.imagePlaceholder.setImageResource(R.drawable.nothing_found)
     }
 
     companion object {

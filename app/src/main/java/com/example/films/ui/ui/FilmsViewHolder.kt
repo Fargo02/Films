@@ -17,7 +17,7 @@ class FilmsViewHolder(
         binding.name.text = model.localizedName
         Glide.with(itemView)
             .load(model.imageUrl)
-            .transform(CenterCrop(), RoundedCorners(4))
+            .transform(CenterCrop(), RoundedCorners(itemView.context.resources.getDimensionPixelSize(R.dimen.mark_4dp)))
             .placeholder(R.drawable.ic_placeholder)
             .into(binding.imageCover)
 

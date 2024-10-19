@@ -25,11 +25,12 @@
             android:textColor="@color/white"
             android:textSize="@dimen/text_mark_18sp"
             android:fontFamily="@font/roboto_medium"
-            android:textAlignment="center"/>
+            android:layout_gravity="center"/>
     </Toolbar>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="@dimen/mark_0dp"
+        android:layout_marginBottom="@dimen/mark_16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -73,28 +74,17 @@
                 app:layout_constraintTop_toBottomOf="@id/cover"
                 app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"/>
             <TextView
-                android:id="@+id/genre"
-                android:layout_width="wrap_content"
+                android:id="@+id/genreAndYear"
+                android:layout_width="@dimen/mark_0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mark_8dp"
-                tools:text="боевик,"
+                tools:text="боевик, 2015 год"
                 android:textSize="@dimen/text_mark_16sp"
                 android:textColor="@color/brown"
                 android:fontFamily="@font/roboto_medium"
                 app:layout_constraintStart_toEndOf="@id/start_guideline_16dp"
-                app:layout_constraintTop_toBottomOf="@id/name"/>
-            <TextView
-                android:id="@+id/year"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/mark_4dp"
-                tools:text="2017 год"
-                android:textSize="@dimen/text_mark_16sp"
-                android:textColor="@color/brown"
-                android:fontFamily="@font/roboto_medium"
-                app:layout_constraintBaseline_toBaselineOf="@id/genre"
-                app:layout_constraintStart_toEndOf="@id/genre"
-                app:layout_constraintTop_toBottomOf="@id/name"/>
+                app:layout_constraintTop_toBottomOf="@id/name"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"/>
             <TextView
                 android:id="@+id/rating"
                 android:layout_width="wrap_content"
@@ -105,7 +95,7 @@
                 android:textColor="@color/blue"
                 android:fontFamily="@font/roboto_medium"
                 app:layout_constraintStart_toEndOf="@id/start_guideline_16dp"
-                app:layout_constraintTop_toBottomOf="@id/genre"/>
+                app:layout_constraintTop_toBottomOf="@id/genreAndYear"/>
             <TextView
                 android:id="@+id/kinopoisk"
                 android:layout_width="wrap_content"
@@ -122,7 +112,7 @@
                 android:id="@+id/description"
                 android:layout_width="@dimen/mark_0dp"
                 android:layout_height="wrap_content"
-                tools:text="Успешный банкир Энди Дюфрейн обвинен в убийстве собственной жены и ее любовника. Оказавшись в тюрьме под названием Шоушенк, он сталкивается с жестокостью и беззаконием, царящими по обе стороны решетки. Каждый, кто попадает в эти стены, становится их рабом до конца жизни. Но Энди, вооруженный живым умом и доброй душой, отказывается мириться с приговором судьбы и начинает разрабатывать невероятно дерзкий план своего освобождения."
+                tools:text="Успешный банкир Энди Дюфрейн обвинен в убийстве собственной жены и ее любовника. Оказавшись в тюрьме под названием Шоушенк, он сталкивается с жестокостью и беззаконием, царящими по обе стороны решетки. Каждый, кто попадает в эти стены, становится их рабом до конца жизни. Но Энди, вооруженный живым умом и доброй душой, отказывается мириться с приговором судьбы и начинает разрабатывать невероятно дерзкий план своего освобождения.Успешный банкир Энди Дюфрейн обвинен в убийстве собственной жены и ее любовника. Оказавшись в тюрьме под названием Шоушенк, он сталкивается с жестокостью и беззаконием, царящими по обе стороны решетки. Каждый, кто попадает в эти стены, становится их рабом до конца жизни. Но Энди, вооруженный живым умом и доброй душой, отказывается мириться с приговором судьбы и начинает разрабатывать невероятно дерзкий план своего освобождения.Успешный банкир Энди Дюфрейн обвинен в убийстве собственной жены и ее любовника. Оказавшись в тюрьме под названием Шоушенк, он сталкивается с жестокостью и беззаконием, царящими по обе стороны решетки. Каждый, кто попадает в эти стены, становится их рабом до конца жизни. Но Энди, вооруженный живым умом и доброй душой, отказывается мириться с приговором судьбы и начинает разрабатывать невероятно дерзкий план своего освобождения.Успешный банкир Энди Дюфрейн обвинен в убийстве собственной жены и ее любовника. Оказавшись в тюрьме под названием Шоушенк, он сталкивается с жестокостью и беззаконием, царящими по обе стороны решетки. Каждый, кто попадает в эти стены, становится их рабом до конца жизни. Но Энди, вооруженный живым умом и доброй душой, отказывается мириться с приговором судьбы и начинает разрабатывать невероятно дерзкий план своего освобождения."
                 android:layout_marginTop="@dimen/mark_14dp"
                 android:background="@color/text_color_bgr"
                 android:textSize="@dimen/text_mark_14sp"

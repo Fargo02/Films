@@ -37,15 +37,24 @@ class AboutFragment(): BindingFragment<FragmentAboutBinding>() {
         val type = object : TypeToken<Film>() {}.type
         currentFilm = Gson().fromJson(track, type) as Film
 
+        val genres = currentFilm.genres.takeIf {
+            it.isNotEmpty()
+        }?.joinToString(", ", postfix = ",") ?: ""
+
+        val stringBuilder = StringBuilder()
+        stringBuilder.append(genres)
+        stringBuilder.append(if (genres.isNotEmpty()) " " else "")
+        stringBuilder.append(currentFilm.year)
+        stringBuilder.append(" год")
+
         binding.toolbarTitle.text = currentFilm.name
         binding.name.text = currentFilm.localizedName
-        binding.genre.text = currentFilm.genres.joinToString(", ", postfix = ",")
-        binding.year.text = getString(R.string.year, currentFilm.year)
+        binding.genreAndYear.text = stringBuilder.toString()
         binding.rating.text = roundOffDecimal(currentFilm.rating)
         binding.description.text = currentFilm.description
         Glide.with(binding.cover)
             .load(currentFilm.imageUrl)
-            .transform(CenterCrop(), RoundedCorners(4))
+            .transform(CenterCrop(), RoundedCorners(resources.getDimensionPixelSize(R.dimen.mark_4dp)))
             .placeholder(R.drawable.ic_placeholder)
             .into(binding.cover)
 

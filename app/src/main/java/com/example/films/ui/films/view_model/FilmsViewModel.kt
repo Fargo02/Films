@@ -16,8 +16,27 @@ class FilmsViewModel(
     private val searchStateLiveData = MutableLiveData<SearchState>()
     fun observeSearchStateLiveData() : LiveData<SearchState> = searchStateLiveData
 
+    private val selectedGenre = MutableLiveData<Pair<String, String>>()
+    fun observeSelectedGenre() : LiveData<Pair<String, String>> = selectedGenre
+
     init {
         getFilms()
+    }
+
+    fun toggleGenreSelection(genre: String) {
+        viewModelScope.launch {
+            delay(DELAY)
+            val currentSelectedGenre = selectedGenre.value ?: Pair("","")
+
+            selectedGenre.value = if (currentSelectedGenre.first == genre) {
+                Pair("", currentSelectedGenre.first)
+            } else {
+                Pair(genre, currentSelectedGenre.first)
+            }
+        }
+        // currentSelectedGenre.first - текущее значение
+        // currentSelectedGenre.second - последнее значение
+
     }
 
     fun getFilms(genre: String = "") {
@@ -46,6 +65,7 @@ class FilmsViewModel(
             }
         }
 
+
         when {
             errorMessage != null -> {
                 renderState(
@@ -60,7 +80,7 @@ class FilmsViewModel(
             else -> {
                 renderState(
                     SearchState.Content(
-                        films = films,
+                        films = films.sortedBy { it.localizedName },
                     )
                 )
             }
