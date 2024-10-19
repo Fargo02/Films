@@ -45,6 +45,7 @@ class FilmsFragment(): BindingFragment<FragmentFilmsBinding>() {
             getString(R.string.detective) to binding.detective,
             getString(R.string.drama) to binding.drama,
             getString(R.string.comedy) to binding.comedy,
+            getString(R.string.crime) to binding.crime,
             getString(R.string.melodrama) to binding.melodrama,
             getString(R.string.musical) to binding.musical,
             getString(R.string.adventures) to binding.adventures,
@@ -101,6 +102,7 @@ class FilmsFragment(): BindingFragment<FragmentFilmsBinding>() {
         clickToGenre(binding.detective, getString(R.string.detective))
         clickToGenre(binding.drama, getString(R.string.drama))
         clickToGenre(binding.comedy, getString(R.string.comedy))
+        clickToGenre(binding.crime, getString(R.string.crime))
         clickToGenre(binding.melodrama, getString(R.string.melodrama))
         clickToGenre(binding.musical, getString(R.string.musical))
         clickToGenre(binding.adventures, getString(R.string.adventures))
