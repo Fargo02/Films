@@ -1,4 +1,4 @@
-package com.practicum.mymovies.di
+package com.example.films.di
 
 
 import com.example.films.ui.about.view_model.AboutViewModel
@@ -12,6 +12,6 @@ val viewModelModule = module {
         AboutViewModel()
     }
     viewModel {
-        FilmsViewModel()
+        FilmsViewModel(get())
     }
 }

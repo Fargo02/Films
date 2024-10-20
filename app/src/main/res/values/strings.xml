@@ -14,4 +14,8 @@
     <string name="thriller">Триллер</string>
     <string name="horrors">Ужасы</string>
     <string name="fantasy">Фантастика</string>
+    <string name="kinopoisk">КиноПоиск</string>
+    <string name="year"> %1$s год</string>
+    <string name="error_network">Ошибка подключения сети</string>
+    <string name="repeat">ПОВТОРИТЬ</string>
 </resources>
