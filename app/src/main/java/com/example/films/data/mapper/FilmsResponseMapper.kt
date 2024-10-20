@@ -16,6 +16,6 @@ class FilmsResponseMapper() {
                     description = film.description ?: "",
                     genres = film.genres
                 )
-        }
+        }.sortedBy { it.localizedName }
     }
 }

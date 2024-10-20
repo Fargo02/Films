@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.films.domain.films.FilmsInteractor
 import com.example.films.domain.films.model.Film
+import com.example.films.ui.mapper.getGenresMapper
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -16,30 +17,24 @@ class FilmsViewModel(
     private val searchStateLiveData = MutableLiveData<SearchState>()
     fun observeSearchStateLiveData() : LiveData<SearchState> = searchStateLiveData
 
-    private val selectedGenre = MutableLiveData<Pair<String, String>>()
-    fun observeSelectedGenre() : LiveData<Pair<String, String>> = selectedGenre
+    private val selectedGenres = MutableLiveData<Int>()
+    fun observeSelectedGenres() : LiveData<Int> = selectedGenres
 
     init {
         getFilms()
+        selectedGenres.postValue(selectedGenres.value ?: -1)
     }
 
-    fun toggleGenreSelection(genre: String) {
-        // currentSelectedGenre.first - текущее значение
-        // currentSelectedGenre.second - последнее значение
+    fun getGenres(genre: String, position: Int) {
         viewModelScope.launch {
             delay(DELAY)
-            val currentSelectedGenre = selectedGenre.value ?: Pair("","")
-
-            selectedGenre.value = if (currentSelectedGenre.first == genre) {
-                Pair("", currentSelectedGenre.first)
-            } else {
-                Pair(genre, currentSelectedGenre.first)
-            }
+            selectedGenres.postValue(position)
+            getFilms(genre)
         }
     }
 
     fun getFilms(genre: String = "") {
-        renderState(SearchState.Loading)
+        renderStateFilm(SearchState.Loading)
         viewModelScope.launch {
             delay(DELAY)
             filmsInteractor
@@ -51,9 +46,7 @@ class FilmsViewModel(
     }
 
     private fun processResult(foundFilms: List<Film>?, errorMessage: String?, genre: String) {
-
         val films = mutableListOf<Film>()
-
         if (foundFilms != null) {
             if (genre != "") {
                 films.addAll(foundFilms.filter { film ->
@@ -66,26 +59,29 @@ class FilmsViewModel(
 
         when {
             errorMessage != null -> {
-                renderState(
-                    SearchState.Error
+                renderStateFilm(
+                    SearchState.Error(
+                        lastSearch = genre
+                    )
                 )
             }
             films.isEmpty() -> {
-                renderState(
+                renderStateFilm(
                     SearchState.Empty
                 )
             }
             else -> {
-                renderState(
+                renderStateFilm(
                     SearchState.Content(
-                        films = films.sortedBy { it.localizedName },
+                        films = films,
+                        genres = getGenresMapper(foundFilms),
                     )
                 )
             }
         }
     }
 
-    private fun renderState(state: SearchState) {
+    private fun renderStateFilm(state: SearchState) {
         searchStateLiveData.postValue(state)
     }
 

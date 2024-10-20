@@ -6,10 +6,13 @@ sealed interface SearchState {
     data object Loading : SearchState
 
     data class Content(
-        val films: List<Film>
+        val films: List<Film>,
+        val genres: List<String>,
     ) : SearchState
 
-    data object Error : SearchState
+    data class Error(
+        val lastSearch: String
+    ) : SearchState
 
     data object Empty : SearchState
 }
