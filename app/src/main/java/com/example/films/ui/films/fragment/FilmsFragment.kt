@@ -13,7 +13,7 @@ import com.example.films.R
 import com.example.films.databinding.FragmentFilmsBinding
 import com.example.films.domain.films.model.Film
 import com.example.films.ui.about.fragment.AboutFragment
-import com.example.films.ui.films.ui.GenresAdapter
+import com.example.films.ui.ui.GenresAdapter
 import com.example.films.ui.films.view_model.FilmsViewModel
 import com.example.films.ui.films.view_model.SearchState
 import com.example.films.ui.ui.FilmsAdapter
