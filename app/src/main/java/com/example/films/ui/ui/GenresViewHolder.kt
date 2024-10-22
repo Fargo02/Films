@@ -1,4 +1,4 @@
-package com.example.films.ui.films.ui
+package com.example.films.ui.ui
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.films.databinding.GenreItemBinding
