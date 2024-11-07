@@ -6,12 +6,14 @@ import android.net.NetworkCapabilities
 import com.example.films.data.search.NetworkClient
 import com.example.films.data.search.dto.FilmsSearchRequest
 import com.example.films.data.search.dto.Response
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class RetrofitNetworkClient(
+class RetrofitNetworkClient @Inject constructor(
     private val apiService: ApiService,
-    private val context: Context
+    @ApplicationContext private val context: Context
 ) : NetworkClient {
     override suspend fun doRequest(dto: Any): Response {
         if (!isConnected()) {

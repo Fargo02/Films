@@ -6,8 +6,9 @@ import com.example.films.domain.films.model.Film
 import com.example.films.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class FilmsInteractorImpl(
+class FilmsInteractorImpl @Inject constructor(
     private val repository: FilmsRepository
 ): FilmsInteractor {
 

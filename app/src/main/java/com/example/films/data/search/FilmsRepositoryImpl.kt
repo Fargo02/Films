@@ -8,8 +8,9 @@ import com.example.films.domain.films.model.Film
 import com.example.films.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
-class FilmsRepositoryImpl(
+class FilmsRepositoryImpl @Inject constructor(
     private val networkClient: NetworkClient,
     private val mapper: FilmsResponseMapper,
 ): FilmsRepository {
