@@ -6,7 +6,9 @@ import androidx.fragment.app.commit
 import com.example.films.R
 import com.example.films.databinding.ActivityMainBinding
 import com.example.films.ui.films.fragment.FilmsFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

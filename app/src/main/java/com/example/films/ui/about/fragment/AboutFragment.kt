@@ -12,19 +12,15 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.films.R
 import com.example.films.databinding.FragmentAboutBinding
 import com.example.films.domain.films.model.Film
-import com.example.films.ui.about.view_model.AboutViewModel
 import com.example.films.utils.BindingFragment
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
 class AboutFragment(): BindingFragment<FragmentAboutBinding>() {
 
     private lateinit var currentFilm: Film
-
-    private val viewModel by viewModel<AboutViewModel>()
 
     override fun createBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentAboutBinding {
         return FragmentAboutBinding.inflate(layoutInflater, container, false)
@@ -44,8 +40,7 @@ class AboutFragment(): BindingFragment<FragmentAboutBinding>() {
         val stringBuilder = StringBuilder()
         stringBuilder.append(genres)
         stringBuilder.append(if (genres.isNotEmpty()) " " else "")
-        stringBuilder.append(currentFilm.year)
-        stringBuilder.append(" год")
+        stringBuilder.append(getString(R.string.year, currentFilm.year))
 
         binding.toolbarTitle.text = currentFilm.name
         binding.name.text = currentFilm.localizedName

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.commit
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,13 +21,14 @@ import com.example.films.ui.ui.FilmsAdapter
 import com.example.films.utils.BindingFragment
 import com.example.films.utils.debounce
 import com.google.gson.Gson
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FilmsFragment(): BindingFragment<FragmentFilmsBinding>() {
 
     private var lastSearch = ""
 
-    private val viewModel by viewModel<FilmsViewModel>()
+    private val viewModel: FilmsViewModel by viewModels()
 
     private lateinit var onFilmClickDebounce: (Film) -> Unit
 

@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.hilt.android)
 }
 
 android {
@@ -39,13 +41,17 @@ android {
 }
 
 dependencies {
+    //Hilt
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.android)
+
+
 
     implementation (libs.glide)
     annotationProcessor (libs.compiler)
     implementation (libs.gson)
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
-    implementation(libs.koin.android)
     implementation(libs.kotlinx.coroutines.android)
     implementation (libs.androidx.fragment.ktx)
 

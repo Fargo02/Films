@@ -14,7 +14,7 @@
         <item name="android:background">@color/selector_text_color_bgr</item>
         <item name="android:paddingVertical">@dimen/mark_10dp</item>
         <item name="android:textSize">@dimen/text_mark_16sp</item>
-        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:paddingHorizontal">@dimen/mark_16dp</item>
     </style>
 

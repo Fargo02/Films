@@ -26,7 +26,6 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/mark_0dp"
-        android:layout_marginBottom="@dimen/mark_16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -77,7 +76,7 @@
                 tools:text="боевик, 2015 год"
                 android:textSize="@dimen/text_mark_16sp"
                 android:textColor="@color/brown"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/roboto_regular"
                 app:layout_constraintStart_toEndOf="@id/start_guideline_16dp"
                 app:layout_constraintTop_toBottomOf="@id/name"
                 app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"/>
@@ -89,7 +88,7 @@
                 tools:text="6.7"
                 android:textSize="@dimen/text_mark_24sp"
                 android:textColor="@color/blue"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/roboto_bold"
                 app:layout_constraintStart_toEndOf="@id/start_guideline_16dp"
                 app:layout_constraintTop_toBottomOf="@id/genreAndYear"/>
             <TextView
@@ -113,6 +112,9 @@
                 android:textSize="@dimen/text_mark_14sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/roboto_regular"
+                app:layout_constraintVertical_bias="0"
+                android:layout_marginBottom="@dimen/mark_16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/start_guideline_16dp"
                 app:layout_constraintTop_toBottomOf="@id/rating"
                 app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"/>

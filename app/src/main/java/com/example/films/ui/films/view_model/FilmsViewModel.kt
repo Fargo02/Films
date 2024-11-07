@@ -7,10 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.films.domain.films.FilmsInteractor
 import com.example.films.domain.films.model.Film
 import com.example.films.ui.mapper.getGenresMapper
-import kotlinx.coroutines.delay
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FilmsViewModel(
+@HiltViewModel
+class FilmsViewModel @Inject constructor(
     private val filmsInteractor: FilmsInteractor
 ): ViewModel() {
 
@@ -27,7 +29,6 @@ class FilmsViewModel(
 
     fun getGenres(genre: String, position: Int) {
         viewModelScope.launch {
-            delay(DELAY)
             selectedGenres.postValue(position)
             getFilms(genre)
         }
@@ -36,7 +37,6 @@ class FilmsViewModel(
     fun getFilms(genre: String = "") {
         renderStateFilm(SearchState.Loading)
         viewModelScope.launch {
-            delay(DELAY)
             filmsInteractor
                 .searchFilms()
                 .collect{ pair ->
@@ -85,7 +85,4 @@ class FilmsViewModel(
         searchStateLiveData.postValue(state)
     }
 
-    companion object {
-        private const val DELAY = 300L
-    }
 }
